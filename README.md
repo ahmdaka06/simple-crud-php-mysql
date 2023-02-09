@@ -1,1 +1,2 @@
-# simple-crud-php-mysql
+# simple-crud-php-mysql 
+required php 8.1
