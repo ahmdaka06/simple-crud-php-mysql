@@ -55,24 +55,9 @@
             </div>
         </div>
     </nav>
-    </header>
 
     <!-- Begin page content -->
     <main class="flex-shrink-0">
-        <div class="container">
-            <h1 class="mt-5">Hi, <?= user('name') ?></h1>
-            <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
-                CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code
-                    class="small">main &gt; .container</code>.</p>
-            <p>Back to <a href="/docs/5.2/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
-        </div>
-    </main>
+        <div class="container my-5">
+        
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js">
-    </script>
-</body>
-
-</html>

@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 $_ENV['production'] = false; // true or false;
 date_default_timezone_set('Asia/Jakarta');
 
@@ -17,5 +20,7 @@ $config['db'] = [
 	'password' => ''
 ];
 
-
+CONST LIST_AGAMA = [
+    'islam','kristen','katholik','hindu','buddha','khonghucu'
+];
 

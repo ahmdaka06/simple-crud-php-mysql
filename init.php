@@ -12,5 +12,6 @@ require_once 'library/class/db.class.php';
 require_once 'library/helper/global.helper.php';
 require_once 'library/helper/form.helper.php';
 require_once 'library/helper/session.helper.php';
+require_once 'vendor/autoload.php';
 
 $db = new DB($config['db']);

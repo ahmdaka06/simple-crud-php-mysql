@@ -1,4 +1,5 @@
 <?php
+if (is_login()) exit(redirect(base_url()));
 if (is_method('post')) {
     $validation = check_input($_POST, [
         'name', 'username', 'password'

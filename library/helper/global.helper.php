@@ -1,7 +1,8 @@
 <?php
 
 if(!function_exists('post_get')){
-	function post_get(?string $i = null){
+	function post_get(?string $i = null): array|string
+	{
         global $_REQUEST;
         if (!is_null($i)){
 			$post = trim($_REQUEST[$i]);
@@ -18,27 +19,32 @@ if(!function_exists('post_get')){
 	}
 }
 if(!function_exists('get')){
-	function get(?string $i = null){
+	function get(?string $i = null): mixed
+	{
         global $_GET;
-		if (!is_null($i)) {
-			$get = trim($_GET[$i]);
-			if (is_string($i)) {
-				$result = trim($_GET[$i]);
-				$result = strip_tags($result);
-				$result = html_entity_decode($result);
-				$result = urldecode($result);
-				$result = addslashes($result);
+		$result = null;
+		if(isset($_GET[$i])) {
+			if (!is_null($i)) {
+				$get = trim($_GET[$i]);
+				if (is_string($i)) {
+					$result = trim($_GET[$i]);
+					$result = strip_tags($result);
+					$result = html_entity_decode($result);
+					$result = urldecode($result);
+					$result = addslashes($result);
+				} else {
+					$result = $get;
+				}
 			} else {
-				$result = $get;
+				$result = $_GET;
 			}
-		} else {
-			$result = $_GET;
 		}
 		return $result;
 	}
 }
 if(!function_exists('post')){
-	function post(?string $i = null){
+	function post(?string $i = null): array|string
+	{
         global $_POST;
 		if (!is_null($i)){
 			$post = trim($_POST[$i]);
@@ -89,6 +95,13 @@ if (!function_exists('base_url')) {
 	    return $config['base']['url'] . $i;
 	}
 }
+if (!function_exists('site_url')) {
+	function site_url(?string $i = null): ?string
+    {    
+        global $config;
+	    return $config['base']['url'] . $i;
+	}
+}
 if (!function_exists('asset')) {
 	function asset(?string $i = null): ?string
     {    
@@ -97,20 +110,22 @@ if (!function_exists('asset')) {
 	}
 }
 if (!function_exists('redirect')) {
-    function redirect(?string $location = null, int $delay = 0) {
+    function redirect(?string $location = null, int $delay = 0): string 
+	{
         if($delay == 0) return header("Location: $location");
         return print "<meta http-equiv=\"refresh\" content=\"$delay;url=$location\">";
     }
 }
 if (!function_exists('flashdata')) {
-    function flashdata(array $data) {
+    function flashdata(array $data): array {
 		global $_SESSION;
         $_SESSION['result'] = $data;
         return $_SESSION['result'];
     }
 }
 if (!function_exists('alert')) {
-    function alert() {
+    function alert()
+	{
 		global $_SESSION;
         if (isset($_SESSION['result']) AND is_array($_SESSION['result'])) {
 			print "<div class=\"alert alert-" . $_SESSION['result']['alert'] . " alert-dismissible fade show\" role=\"alert\">
@@ -120,4 +135,12 @@ if (!function_exists('alert')) {
 			unset($_SESSION['result']);
 		}
     }
+}
+if (!function_exists('nestedLowercase')) {
+    function nestedLowercase($value) {
+		if (is_array($value)) {
+			return array_map('nestedLowercase', $value);
+		}
+		return strtolower($value);
+	}
 }

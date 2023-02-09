@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 23 Nov 2022 pada 18.01
+-- Waktu pembuatan: 09 Feb 2023 pada 16.45
 -- Versi server: 5.7.33
 -- Versi PHP: 8.1.9
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `learn_simple_crud_php_mysql`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mahasiswa`
+--
+
+CREATE TABLE `mahasiswa` (
+  `id` int(11) NOT NULL,
+  `nim` int(22) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_telepon` varchar(25) NOT NULL,
+  `jenis_kelamin` enum('pria','wanita') NOT NULL,
+  `agama` enum('islam','kristen','katholik','hindu','buddha','khonghucu') NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `alamat`, `no_telepon`, `jenis_kelamin`, `agama`, `created_at`, `updated_at`) VALUES
+(5, 1, '1', '1', '1', 'pria', 'islam', '2023-02-09 23:45:08', '2023-02-09 23:45:08');
 
 -- --------------------------------------------------------
 
@@ -48,6 +73,12 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `created_at`, `update
 --
 
 --
+-- Indeks untuk tabel `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -56,6 +87,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

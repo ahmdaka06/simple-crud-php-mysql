@@ -1,12 +1,15 @@
 <?php
 if (!function_exists('is_method')) {
-    function is_method(string $method) {
-        if (strtolower($_SERVER['REQUEST_METHOD']) === strtolower($method)) return true;
+    function is_method(string $method):bool  
+    {
+        if (strtolower($_SERVER['REQUEST_METHOD']) == strtolower($method)) return true;
         return false;
     }
 }
-if (!function_exists('check_input')) {
-    function check_input(array $input, array $data) {
+if (!function_exists('check_input')) 
+{
+    function check_input(array $input, array $data): bool 
+    {
         $input = array_keys($input);
         $false = 0;
         foreach ($data as $key) {
@@ -17,7 +20,8 @@ if (!function_exists('check_input')) {
     }
 }
 if (!function_exists('check_empty')) {
-    function check_empty(array $input) {
+    function check_empty(array $input): bool
+    {
         $result = true;
         foreach ($input as $key => $value) {
             $result = false;

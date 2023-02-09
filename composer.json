@@ -1,0 +1,12 @@
+{
+    "name": "ahmda/simple-crud-php-mysql",
+    "authors": [
+        {
+            "name": "Ahmad Andika",
+            "email": "ahmdaka06@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.27"
+    }
+}
