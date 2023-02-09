@@ -49,6 +49,9 @@
                         <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?= base_url('mahasiswa') ?>">Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="<?= base_url('auth.logout') ?>">Logout</a>
                     </li>
                 </ul>

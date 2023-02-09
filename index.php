@@ -12,10 +12,6 @@ include 'layouts/primary.php';
                 class="small">main &gt; .container</code>.</p>
         <p>Back to <a href="/docs/5.2/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
         <pre>
-        <?php 
-            $fields = $db->list_fields('mahasiswa');
-            print_r($fields);
-        ?>
         </pre>
     </div>
 </div>
